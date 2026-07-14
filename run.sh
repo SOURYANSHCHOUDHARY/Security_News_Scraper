@@ -2,17 +2,14 @@
 set -e
 
 echo "======================================="
-echo " Threat Intelligence Platform "
+echo " Threat Intelligence Dashboard "
 echo "======================================="
 
-echo ""
-echo "Creating database and collecting articles..."
+echo "Running scraper..."
+python app.py || echo "Scraper failed. Starting dashboard with existing database."
 
-python app.py
-
-echo ""
-echo "Starting Streamlit Dashboard..."
+echo "Starting Streamlit..."
 
 streamlit run dashboard.py \
-    --server.address=0.0.0.0 \
-    --server.port=8501
+  --server.address=0.0.0.0 \
+  --server.port=${PORT:-8501}
