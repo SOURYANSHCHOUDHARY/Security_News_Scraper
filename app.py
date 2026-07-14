@@ -6,6 +6,18 @@ from logger import logger
 
 def main():
 
+    print("STEP 1: Starting app.py")
+
+    print("STEP 2: Creating tables")
+    create_tables()
+
+    print("STEP 3: Tables created")
+
+    print("STEP 4: Fetching articles")
+    articles = get_articles()
+
+    print(f"STEP 5: Found {len(articles)} articles")
+
     # Create database tables
     create_tables()
 
